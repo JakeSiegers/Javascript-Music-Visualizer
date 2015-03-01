@@ -109,6 +109,7 @@ function getScreenHeight(){
 var size = 0;
 var goalSize = 0;
 var boxX = 0;
+var boxY = 0;
 var sinCounter = 0;
 
 function draw() {
@@ -138,20 +139,23 @@ function draw() {
 	var colorAdjust = Math.floor(Math.abs(avg)*6);
 
 	var rgb = 'rgb('+colorAdjust+',0,'+(255-colorAdjust)+')';
-	var rgba = 'rgba('+colorAdjust+',0,'+(255-colorAdjust)+',0.08)';
+	var rgba = 'rgba('+colorAdjust+',0,'+(255-colorAdjust)+',0.1)';
 
 	
 		goalSize = Math.abs(avg);
 	size = smoothMove(size,goalSize);
 
 	
-	//boxX=Math.sin(sinCounter)*500+canvas.width/2
+	//boxX=Math.sin(sinCounter)*(canvas.width/2)+(canvas.width/2)
+	//boxY=Math.sin(sinCounter)*(canvas.height/2)+(canvas.height/2)
 	boxX+=40;
+	boxY+=40;
 	boxX=boxX%canvas.width;
+	boxY=boxY%canvas.height;
 	canvasCtx.beginPath();
 	for(var i=1;i<=20;i++){
 		drawCenteredSquare(canvasCtx,(boxX+20*i)%canvas.width,(i%2)*(canvas.height), 10+size*2, 10+size*2);	
-		drawCenteredSquare(canvasCtx,(i%2)*(canvas.width),(boxX+20*i)%canvas.height, 10+size*2, 10+size*2);	
+		drawCenteredSquare(canvasCtx,(i%2)*(canvas.width),(boxY+20*i)%canvas.height, 10+size*2, 10+size*2);	
 	}
 	canvasCtx.fillStyle = rgba;
 	canvasCtx.fill();
