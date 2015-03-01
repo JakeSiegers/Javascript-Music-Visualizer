@@ -14,7 +14,8 @@ canvasCtx.fillStyle = 'rgb(0, 0, 0)';
 canvasCtx.fillRect(0, 0, canvas.width,  canvas.height);
 var play = document.querySelector('.play');
 var stop = document.querySelector('.stop');
-
+var version = document.querySelector('.version');
+version.innerHTML = "("+buildInfo+")";
 var dataLoaded = 0;
 var drawInitalized = 0;
 

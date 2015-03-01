@@ -3,7 +3,7 @@
 		function deploy(){
 
 			$this->updateBuildInfo();
-    
+
 			$cmdArgs = array(
 				"-avz",
 				"-e",
@@ -29,9 +29,9 @@
 
 		private function updateBuildInfo(){
 
-			$buildString = "Built by: ".$_SERVER['BUILD_USER_ID']."\\nGit: ".$_SERVER['GIT_COMMIT']."\\nJenkins: ".$_SERVER['BUILD_NUMBER']."\\n".date('F jS Y h:i:s A');
+			$buildString = "J".$_SERVER['BUILD_NUMBER'].";
 
-			file_put_contents("src/buildInfo.js", 'buildInfo = "'.$buildString.'";');
+			file_put_contents("js/buildInfo.js", 'buildInfo = "'.$buildString.'";');
 		}
 
 		private function exitCode($returnVar){
