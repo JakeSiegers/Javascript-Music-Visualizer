@@ -29,7 +29,7 @@
 
 		private function updateBuildInfo(){
 
-			$buildString = "J".$_SERVER['BUILD_NUMBER'].";
+			$buildString = "J".$_SERVER['BUILD_NUMBER'];
 
 			file_put_contents("js/buildInfo.js", 'buildInfo = "'.$buildString.'";');
 		}
