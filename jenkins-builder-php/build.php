@@ -3,7 +3,7 @@
 		function deploy(){
 
 			$this->updateBuildInfo();
-
+    
 			$cmdArgs = array(
 				"-avz",
 				"-e",
